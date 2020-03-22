@@ -1,0 +1,438 @@
+.text {
+  color: rgb(239, 197, 1);
+  width: 100%;
+}
+.margin {
+  margin-left: 5px;
+}
+.tabbutton {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.tabbutton:hover {
+  background-color: rgb(230, 230, 230);
+  border-color: rgb(230, 230, 230);
+}
+.textupdate {
+  width: 100%;
+  text-align: center;
+  
+  font-size: 18px;
+  color: rgb(143, 0, 255);
+}
+.challengep {
+	border-width: 5px;
+	height: 150px;
+	width: 150px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+#changelog {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(143, 0, 255);
+  border-color: rgb(143, 0, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin: 10px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#changelog:hover {
+  background-color: rgb(129, 0, 230);
+  border-color: rgb(129, 0, 230);
+}
+#textcl {
+  width: 100%;
+  text-align: center;
+}
+#backcl {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(143, 0, 255);
+  border-color: rgb(143, 0, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin: 10px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#backcl:hover {
+  background-color: rgb(129, 0, 230);
+  border-color: rgb(129, 0, 230);
+}
+#reset {
+  position: fixed;
+  bottom: 5px;
+  left: 125px;
+  background-color: rgb(143, 0, 255);
+  border-color: rgb(143, 0, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#reset:hover {
+  background-color: rgb(129, 0, 230);
+  border-color: rgb(129, 0, 230);
+}
+#beta {
+  position: fixed;
+  bottom: 5px;
+  left: 245px;
+  background-color: rgb(143, 0, 255);
+  border-color: rgb(143, 0, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#beta:hover {
+	background-color: rgb(129, 0, 230);
+	border-color: rgb(129, 0, 230);
+}
+#number {
+  color: rgb(239, 197, 1);
+}
+#increment1 {
+  background-color: rgb(255, 0, 0);
+  border-color: rgb(255, 0, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#increment1:hover {
+  background-color: rgb(230, 0, 0);
+  border-color: rgb(230, 0, 0);
+}
+#increment2 {
+  background-color: rgb(255, 127, 0);
+  border-color: rgb(255, 127, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#increment2:hover {
+  background-color: rgb(230, 115, 0);
+  border-color: rgb(230, 115, 0);
+}
+#increment3 {
+  background-color: rgb(255, 255, 0);
+  border-color: rgb(255, 255, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#increment3:hover {
+  background-color: rgb(230, 230, 0);
+  border-color: rgb(230, 230, 0);
+}
+#increment4 {
+  background-color: rgb(0, 255, 0);
+  border-color: rgb(0, 255, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#increment4:hover {
+  background-color: rgb(0, 230, 0);
+  border-color: rgb(0, 230, 0);
+}
+#autoi1 {
+  background-color: rgb(255, 0, 0);
+  border-color: rgb(255, 0, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#autoi1:hover {
+  background-color: rgb(230, 0, 0);
+  border-color: rgb(230, 0, 0);
+}
+#autoi2 {
+  background-color: rgb(255, 127, 0);
+  border-color: rgb(255, 127, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#autoi2:hover {
+  background-color: rgb(230, 115, 0);
+  border-color: rgb(230, 115, 0);
+}
+#autoi3 {
+  background-color: rgb(255, 255, 0);
+  border-color: rgb(255, 255, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#autoi3:hover {
+  background-color: rgb(230, 230, 0);
+  border-color: rgb(230, 230, 0);
+}
+#autoi4 {
+  background-color: rgb(0, 255, 0);
+  border-color: rgb(0, 255, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#autoi4:hover {
+  background-color: rgb(0, 230, 0);
+  border-color: rgb(0, 230, 0);
+}
+#refundp {
+	background-color: rgb(143, 0, 255);
+  border-color: rgb(143, 0, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#refundp:hover {
+	background-color: rgb(129, 0, 230);
+	border-color: rgb(129, 0, 230);
+}
+#prestige {
+  background-color: rgb(143, 0, 255);
+  border-color: rgb(143, 0, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#prestige:hover {
+  background-color: rgb(129, 0, 230);
+  border-color: rgb(129, 0, 230);
+}
+#upgrades {
+  background-color: rgb(75, 0, 130);
+  border-color: rgb(75, 0, 130);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#upgrades:hover {
+  background-color: rgb(68, 0, 117);
+  border-color: rgb(68, 0, 117);
+}
+#upgrade1 {
+  background-color: rgb(255, 0, 0);
+  border-color: rgb(255, 0, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#upgrade1:hover {
+  background-color: rgb(230, 0, 0);
+  border-color: rgb(230, 0, 0);
+}
+#upgrade2 {
+  background-color: rgb(255, 127, 0);
+  border-color: rgb(255, 127, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#upgrade2:hover {
+  background-color: rgb(230, 115, 0);
+  border-color: rgb(230, 115, 0);
+}
+#upgrade3 {
+  background-color: rgb(255, 255, 0);
+  border-color: rgb(255, 255, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#upgrade3:hover {
+  background-color: rgb(230, 230, 0);
+  border-color: rgb(230, 230, 0);
+}
+#upgrade4 {
+  background-color: rgb(0, 255, 0);
+  border-color: rgb(0, 255, 0);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#upgrade4:hover {
+  background-color: rgb(0, 230, 0);
+  border-color: rgb(0, 203, 0);
+}
+#challenges {
+  background-color: rgb(75, 0, 130);
+  border-color: rgb(75, 0, 130);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 25px;
+  width: 110px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#challenges:hover {
+  background-color: rgb(68, 0, 117);
+  border-color: rgb(68, 0, 117);
+}
+#challengep1 {
+	background-color: rgb(255, 0, 0);
+	border-color: rgb(255, 0, 0);
+}
+#challengep1:hover {
+	background-color: rgb(230, 0, 0);
+	border-color: rgb(230, 0, 0);
+}
+#challengep2 {
+	background-color: rgb(255, 127, 0);
+	border-color: rgb(255, 127, 0);
+}
+#challengep2:hover {
+	background-color: rgb(230, 115, 0);
+	border-color: rgb(230, 115, 0);
+}
+#challengep3 {
+	background-color: rgb(255, 255, 0);
+	border-color: rgb(255, 255, 0);
+}
+#challengep3:hover {
+	background-color: rgb(230, 230, 0);
+	border-color: rgb(230, 230, 0);
+}
+#challengep4 {
+	background-color: rgb(0, 255, 0);
+	border-color: rgb(0, 255, 0);
+}
+#challengep4:hover {
+	background-color: rgb(0, 230, 0);
+	border-color: rgb(0, 230, 0);
+}
+#exitchallenge {
+	background-color: rgb(143, 0, 255);
+  border-color: rgb(143, 0, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin: 5px;
+  width: 125px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#exitchallenge:hover {
+	background-color: rgb(129, 0, 230);
+	border-color: rgb(129, 0, 230);
+}
+#completechallengep {
+	background-color: rgb(143, 0, 255);
+  border-color: rgb(143, 0, 255);
+  border-width: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  width: 165px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+#completechallengep:hover {
+	background-color: rgb(129, 0, 230);
+  border-color: rgb(129, 0, 230);
+}
