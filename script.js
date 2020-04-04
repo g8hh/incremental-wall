@@ -478,18 +478,18 @@ function scale(s) {
 }
 
 function upgrade(u) {
-  if (u == 1 && game.pp >= game.u1cost[game.u1count] && game.u1count < game.u1max && game.i2count == 0) {
+  if (u == 1 && game.pp >= game.u1cost[game.u1count] && game.u1count < 5 && game.i2count == 0) {
     game.pp -= game.u1cost[game.u1count];
     game.refundAmount += game.u1cost[game.u1count];
     game.u1count++;
     game.i2quotient -= 0.01;
   }
-  if (u == 2 && game.pp >= game.u2cost[game.u2count] && game.u2count < game.u2max && game.i3count == 0) {
+  if (u == 2 && game.pp >= game.u2cost[game.u2count] && game.u2count < 5 && game.i3count == 0) {
     game.pp -= game.u2cost[game.u2count];
     game.refundAmount += game.u2cost[game.u2count];
     game.u2count++;
   }
-  if (u == 3 && game.pp >= game.u3cost[game.u3count] && game.u3count < game.u3max && game.i4count == 0) {
+  if (u == 3 && game.pp >= game.u3cost[game.u3count] && game.u3count < 5 && game.i4count == 0) {
     game.pp -= game.u3cost[game.u3count];
     game.refundAmount += game.u3cost[game.u3count];
     game.u3count++;
