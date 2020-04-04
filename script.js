@@ -528,6 +528,7 @@ function refund() {
   else {
     game.i2quotient = 1.11;
     game.i4cost = [1e6, 1e12, 1e24, 1e48, 1e96, 1e192];
+    resetPrestige();
     hide();
     unlock();
     display();
