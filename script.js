@@ -166,7 +166,6 @@ function refresh() {
   document.getElementById("u3count").innerHTML = game.u3count;
   document.getElementById("c1count").innerHTML = game.c1count;
   document.getElementById("c1reward").innerHTML = game.ainterval;
-  document.getElementById("c3count").innerHTML = game.c3count;
 }
 function hide() {
   document.getElementById("prestigePointsTop").style.display = "none";
