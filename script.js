@@ -591,3 +591,4 @@ loadAutomation();
 unlock();
 display();
 refresh();
+refresh();
