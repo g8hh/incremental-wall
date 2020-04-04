@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Incremental Wall</title>
+    <title>Number Wall</title>
 	  <meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,10 +16,10 @@
       <div><button class="golden ccomplete" id="ccomplete" onclick="ccomplete(1)">Complete Challenge</button></div>
     </div>
     <div class="center" id="tabs">
-      <button type="button" class="tab" onclick="tab(1)">Increments</button>
-      <button type="button" class="tab" onclick="tab(2)">Options</button>
-      <button class="tab" id="tabAutomation" onclick="tab(3)">Automation</button>
-      <button class="tab" id="tabScaling" onclick="tab(4)">Scaling</button>
+      <button class="tab" onclick="tab(1)">Increments</button>
+      <button class="tab" onclick="tab(2)">Options</button>
+      <button class="tab" id="tabAutomation" onclick="tab(4)">Automation</button>
+      <button class="tab" id="tabScaling" onclick="tab(5)">Scaling</button>
       <br><button id="tabPrestige" onclick="tab(6)">Prestige</button>
     </div>
     <div class="center" id="tab1">
@@ -52,7 +52,7 @@
         <button class="option" id="changelog" onclick="window.location.href='https://spurious-comfortable-basilisk.glitch.me/'">Changelog</button>
       </div>
     </div>
-    <div class="center" id="tab3">
+    <div class="center" id="tab4">
       <div><button class="button" id="automate1" onclick="automate(1)">Automate 1<br><span class="greenText" id="a1enabled">Disabled</span></button></div>
       <div><button class="button" id="automate2" onclick="automate(2)">Automate 2<br><span class="greenText" id="a2enabled">Disabled</span></button></div>
       <div><button class="button" id="automate3" onclick="automate(3)">Automate 3<br><span class="greenText" id="a3enabled">Disabled</span></button></div>
@@ -61,9 +61,9 @@
       <div><button class="button" id="automate6" onclick="automate(6)">Automate 6<br><span class="greenText" id="a6enabled">Disabled</span></button></div>
       <div><button class="button" id="automate7" onclick="automate(7)">Automate 7<br><span class="greenText" id="a7enabled">Disabled</span></button></div>
     </div>
-    <div class="center" id="tab4">
+    <div class="center" id="tab5">
       <div>
-        <button class="scale" id="scale1" onclick="scale(1)"><span class="top">Scale 1:<br>Increment 2<br><span class="greenText" id="s1count">0</span><span class="greenText">/2</span><br><span class="goldText">Cost: <span id="s1cost">1.00e+12</span></span></span><span class="text bottom">Decrease increment 2 cost product base.</span></button>
+        <button class="scale" id="scale1" onclick="scale(1)"><span class="top">Scale 1:<br>Increment 2<br><span class="greenText" id="s1count">0</span><span class="greenText">/3</span><br><span class="goldText">Cost: <span id="s1cost">1.00e+12</span></span></span><span class="text bottom">Decrease increment 2 cost product base.</span></button>
         <button class="scale" id="scale4" onclick="scale(4)"><span class="top">Scale 4:<br>Increment 5<br><span class="greenText" id="s4count">0</span><span class="greenText">/WIP</span><br><span class="goldText">Cost: <span id="s4cost">WIP</span></span></span><span class="text bottom">WIP</span></button>
       </div>
       <div>
@@ -81,23 +81,23 @@
         <button class="tab" id="challenges" onclick="tab(8)">Challenges</button>
       </div>
       <div class="center" id="tab7">
-        <div class="textTop">Next unlocks in <span class="greenText" id="unlockReqP">1</span> Prestige Points</div>
-        <div class="textTop" id="unlockP">Upgrade</div>
+        <div class="textTop">Next unlocks in <span class="greenText" id="unlockReqU">1</span> Prestige Points</div>
+        <div class="textTop" id="unlockU">Upgrade 1</div>
         <div>
           <button class="golden" onclick="refund()">Refund<br><span id="refundAmount">0</span> PP</button>
-          <button class="golden" onclick="prestige()">Prestige<br>+1 PP</button>
+          <button class="golden" onclick="prestige()">Prestige<br>+<span id="pponprestige">1</span> PP</button>
         </div>
-        <div><button class="button" id="upgrade1" onclick="upgrade(1)">Upgrade 1<br><span class="greenText"><span id="u1count">0</span>/5</span><br><span class="goldText">Cost: <span id="u1cost">1</span> PP</span></button><br><span class="text" id="textu1">Upgrade increment 2 multi<br>but decrease cost quotient.</span></div>
-        <div><button class="button" id="upgrade2" onclick="upgrade(2)">Upgrade 2<br><span class="greenText"><span id="u2count">0</span>/3</span><br><span class="goldText">Cost: <span id="u2cost">2</span> PP</span></button><br><span class="text" id="textu2">Upgrade base increment 3<br> but increase cost exponent</span></div>
-        <div><button class="button" id="upgrade3" onclick="upgrade(3)">Upgrade 3<br><span class="greenText"><span id="u3count">0</span>/2</span><br><span class="goldText">Cost: <span id="u3cost">1</span> PP</span></button><br><span class="text" id="textu3">Upgrade increment 4 exponent<br>but multiply the cost.</span></div>
+        <div><button class="button" id="upgrade1" onclick="upgrade(1)">Upgrade 1<br><span class="greenText"><span id="u1count">0</span>/<span id="u1max">0</span></span><br><span class="goldText">Cost: <span id="u1cost">1</span> PP</span></button><br><span class="text" id="textu1">Upgrade increment 2 multi<br>but decrease cost quotient.</span></div>
+        <div><button class="button" id="upgrade2" onclick="upgrade(2)">Upgrade 2<br><span class="greenText"><span id="u2count">0</span>/<span id="u2max">0</span></span><br><span class="goldText">Cost: <span id="u2cost">2</span> PP</span></button><br><span class="text" id="textu2">Upgrade base increment 3<br> but increase cost exponent</span></div>
+        <div><button class="button" id="upgrade3" onclick="upgrade(3)">Upgrade 3<br><span class="greenText"><span id="u3count">0</span>/<span id="u3max">0</span></span><br><span class="goldText">Cost: <span id="u3cost">1</span> PP</span></button><br><span class="text" id="textu3">Upgrade increment 4 exponent<br>but multiply the cost.</span></div>
       </div>
       <div class="center" id="tab8">
         <div>
           <button class="golden" id="exit" onclick="exit()">Exit Challenge</button>
         </div>
         <div>
-          <button class="challenge" id="challenge1" onclick="challenge(1)"><span class="text top">Automation is disabled.</span>Challenge 1<br><span class="greenText" id="c1count">0</span><span class="greenText">/2</span><span class="text bottom">Reward: Autobuyers are a little bit faster.</span></button>
-          <button class="challenge" id="challenge2" onclick="challenge(2)"><span class="text top">Goal.</span>Challenge 2<br><span class="greenText" id="c2count">0</span><span class="greenText">/10</span><span class="text bottom">Reward.</span></button>
+          <button class="challenge" id="challenge1" onclick="challenge(1)"><span class="text top">Automation is disabled.</span>Challenge 1<br><span class="greenText" id="c1count">0</span><span class="greenText">/10</span><span class="text bottom">Reward: Autobuyers are a little bit faster. (<span id="c1reward">41</span>ms)</span></button>
+          <button class="challenge" id="challenge2" onclick="challenge(2)"><span class="text top">Upgrades are disabled.</span>Challenge 2<br><span class="greenText" id="c2count">0</span><span class="greenText">/5</span><span class="text bottom">Reward: Upgrades gain another level. (+<span id="c2reward">0</span>)</span></button>
         </div>
         <div>
           <button class="challenge" id="challenge3" onclick="challenge(3)"><span class="text top">Goal.</span>Challenge 3<br><span class="greenText" id="c3count">0</span><span class="greenText">/10</span><span class="text bottom">Reward.</span></button>
