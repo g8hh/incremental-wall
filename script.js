@@ -26,15 +26,12 @@ var game = {
   refundAmount: 0,
   u1cost: [1, 4, 9, 16, 25, "Max"],
   u1count: 0,
-  u1max: 5,
   u1push: [490, 8100, 121000, 1.69e6, 2.25e7],
   u2cost: [2, 5, 10, 19, 30, "Max"],
   u2count: 0,
-  u2max: 5,
   u2push: [600, 10500, 210000, 3.15e6, 5.25e7],
   u3cost: [10, 20, 35, 55, 80, "Max"],
   u3count: 0,
-  u3max: 5,
   c1in: 0,
   c1count: 0,
   c1goal: [1e9, 1e10, 1e11, 1e12, 1e13, 1e18, 1e19, 1e20, 1e21, 1e22],
@@ -169,9 +166,6 @@ function refresh() {
   document.getElementById("u3count").innerHTML = game.u3count;
   document.getElementById("c1count").innerHTML = game.c1count;
   document.getElementById("c1reward").innerHTML = game.ainterval;
-  document.getElementById("u1max").innerHTML = game.u1max;
-  document.getElementById("u2max").innerHTML = game.u2max;
-  document.getElementById("u3max").innerHTML = game.u3max;
   document.getElementById("c3count").innerHTML = game.c3count;
 }
 function hide() {
