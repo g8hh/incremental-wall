@@ -11,7 +11,7 @@ body {
   padding: 5px;
   margin: 5px;
   margin-top: 25px;
-  width: 130px;
+  width: 150px;
   font-size: 21px;
   cursor: pointer;
   transition: background-color .2s;
@@ -33,7 +33,7 @@ body {
   padding: 5px;
   margin: 5px;
   margin-top: 15px;
-  width: 165px;
+  width: 175px;
   font-size: 21px;
   cursor: pointer;
   transition: color .2s, background-color .2s;
@@ -128,12 +128,12 @@ body {
 .scale:active {
   border-style: inset outset outset inset;
 }
+
 .ccomplete {
   margin-top: 10px;
   margin-bottom: -10px;
   width: 225px;
 }
-
 .center {
   text-align: center;
 }
@@ -144,6 +144,9 @@ body {
 .text {
   color: rgb(150, 150, 150);
   font-size: 16px;
+}
+.redText {
+  color: rgb(220, 20, 60);
 }
 .greenText {
   color: rgb(140, 200, 0);
