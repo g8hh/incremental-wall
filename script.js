@@ -321,7 +321,7 @@ function resetPrestige() {
     unlock();
     display();
     refresh();
-  }, 10);
+  }, 100);
 }
 function load() {
   let data = JSON.parse(localStorage.getItem("gameFile"));
