@@ -37,7 +37,7 @@ var game = {
   c1goal: [1e9, 1e10, 1e11, 1e12, 1e13, 1e18, 1e19, 1e20, 1e21, 1e22],
   ainterval: 41,
   inTab: 1,
-  version: [0, 0, 7],
+  version: [0, 0, 6],
 };
 const interval = (a, delay) => {
   setTimeout(() => {
@@ -301,7 +301,7 @@ function reset() {
   game.c1goal = [1e9, 1e10, 1e11, 1e12, 1e13, 1e18, 1e19, 1e20, 1e21, 1e22];
   game.ainterval = 41;
   game.inTab = 1;
-  game.version = [0, 0, 7];
+  game.version = [0, 0, 6];
   tab(1);
   unlock();
   display();
