@@ -37,6 +37,7 @@ var game = {
   c1goal: [1e9, 1e10, 1e11, 1e12, 1e13, 1e18, 1e19, 1e20, 1e21, 1e22],
   ainterval: 41,
   inTab: 1,
+  version: [0, 0, 7],
 };
 const interval = (a, delay) => {
   setTimeout(() => {
