@@ -301,6 +301,7 @@ function reset() {
   game.c1goal = [1e9, 1e10, 1e11, 1e12, 1e13, 1e18, 1e19, 1e20, 1e21, 1e22];
   game.ainterval = 41;
   game.inTab = 1;
+  game.version = [0, 0, 7];
   tab(1);
   unlock();
   display();
@@ -373,6 +374,7 @@ function loadGame(data) {
   if (typeof data.c1goal != "undefined") game.c1goal = data.c1goal;
   if (typeof data.ainterval != "undefined") game.ainterval = data.ainterval;
   if (typeof data.inTab != "undefined") game.inTab = data.inTab;
+  if (typeof data.version != "undefined") game.version = data.version;
   tab(game.inTab);
   unlock();
   display();
