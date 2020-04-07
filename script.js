@@ -584,6 +584,7 @@ function exit() {
   tab(8);
 }
 
+game.version = [0, 0, 7];
 hide();
 tab(1);
 load();
