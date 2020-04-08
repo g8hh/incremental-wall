@@ -219,6 +219,12 @@ function refresh() {
   for (let i = 0; i < 4; i++) {
     doc("pi" + i + "x").innerHTML = game.pi[i].x;
   }
+  if (game.inc.prePrestige >= 1e8) {
+    doc("ppgain").innerHTML = game.pp.gain;
+  }
+  else {
+    doc("ppgain").innerHTML = 0;
+  }
   document.getElementById("i3x").innerHTML = d((game.i[3].x), 1);
   document.getElementById("i3cost").innerHTML = e(game.i[3].cost[game.i[3].count]);
   document.getElementById("s1effect").innerHTML = d(game.i[1].base, 2);
