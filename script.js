@@ -196,6 +196,7 @@ function display() {
   game.pi[3].x = game.pi[3].count + 1;
   game.pi[1].cost = 20 * (2 ** (game.pi[1].count));
   game.pi[2].cost = 2000 * (10 ** (game.pi[2].count));
+  game.pi[3].cost = 200000 * (1000000 ** (game.pi[3].count));
 }
 function refresh() {
   doc("c1count").innerHTML = game.c[1].count;
