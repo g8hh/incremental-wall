@@ -245,7 +245,7 @@ function refresh() {
   doc("statInc1Count").innerHTML = game.i[1].count;
   doc("statInc2Count").innerHTML = game.i[2].count;
   doc("statInc3Count").innerHTML = game.i[3].count;
-  doc("statIncFormula").innerHTML = "((" + game.i[1].count * (game.u[1].count + 1) + "*" + (game.i[2].count + 1) * (game.u[2].count + 1) + ")^(" + ((game.i[3].count + 1) * (1 + (game.u[3].count / 10))) + "))*" + d((1 + Math.log10(game.pp.x + 1)), 2);
+  doc("statIncFormula").innerHTML = "((" + (game.i[1].count * (game.u[1].count + 1)) + "*" + ((game.i[2].count + 1) * (game.u[2].count + 1)) + ")^(" + ((game.i[3].count + 1) * (1 + (game.u[3].count / 10))) + "))*" + d((1 + Math.log10(game.pp.x + 1)), 2);
   doc("statAInterval").innerHTML = game.ainterval;
   doc("statPPTotal").innerHTML = game.pp.total
   doc("statPPTotal").innerHTML = game.pp.total;
