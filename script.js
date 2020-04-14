@@ -180,8 +180,8 @@ function unlock() {
   }
 }
 function display() {
-  game.i[0].x = (((game.i[1].count) * (game.u[1].count + 1) * (game.i[2].count + 1) * (game.u[2].count + 1)) ** (game.i[3].count + 1)) * (1 + Math.log10(game.pp.x + 1));
-  game.i[1].x = ((((game.i[1].count + 2) * (game.u[1].count + 1) * (game.i[2].count + 1) * (game.u[2].count + 1)) ** (game.i[3].count + 1)) * (1 + Math.log10(game.pp.x + 1))) - ((((game.i[1].count + 1) * (game.u[1].count + 1) * (game.i[2].count + 1) * (game.u[2].count + 1)) ** (game.i[3].count + 1)) * (1 + Math.log10(game.pp.x + 1)));
+  game.i[0].x = (((game.i[1].count) * (game.u[1].count + 1) * (game.i[2].count + 1) * (game.u[2].count + 1)) ** ((game.i[3].count + 1) * (1 + (game.u[3].count / 10))) * (1 + Math.log10(game.pp.x + 1));
+  game.i[1].x = ((((game.i[1].count + 2) * (game.u[1].count + 1) * (game.i[2].count + 1) * (game.u[2].count + 1)) ** ((game.i[3].count + 1) * (1 + (game.u[3].count / 10))) * (1 + Math.log10(game.pp.x + 1))) - ((((game.i[1].count + 1) * (game.u[1].count + 1) * (game.i[2].count + 1) * (game.u[2].count + 1)) ** ((game.i[3].count + 1) * (1 + (game.u[3].count / 10))) * (1 + Math.log10(game.pp.x + 1)));
   game.i[2].x = (game.i[2].count + 1) * (game.u[2].count + 1);
   game.i[3].x = (game.i[3].count + 1) * (1 + (game.u[3].count / 10));
   game.i[1].cost = (10 * (2 ** Math.log10(game.i[1].base ** game.i[1].count))) / (game.i[1].quotient ** game.i[1].count);
@@ -245,7 +245,7 @@ function refresh() {
   doc("statInc1Count").innerHTML = game.i[1].count;
   doc("statInc2Count").innerHTML = game.i[2].count;
   doc("statInc3Count").innerHTML = game.i[3].count;
-  doc("statIncFormula").innerHTML = "((" + game.i[1].count * (game.u[1].count + 1) + "*" + (game.i[2].count + 1) * (game.u[2].count + 1) + ")^(" + (game.i[3].count + 1) + "))*" + d((1 + Math.log10(game.pp.x + 1)), 2);
+  doc("statIncFormula").innerHTML = "((" + game.i[1].count * (game.u[1].count + 1) + "*" + (game.i[2].count + 1) * (game.u[2].count + 1) + ")^(" + ((game.i[3].count + 1) * (1 + (game.u[3].count / 10)) + "))*" + d((1 + Math.log10(game.pp.x + 1)), 2);
   doc("statAInterval").innerHTML = game.ainterval;
   doc("statPPTotal").innerHTML = game.pp.total
   doc("statPPTotal").innerHTML = game.pp.total;
