@@ -101,10 +101,11 @@ function resetPrestige() {
 }
 function load() {
   let data = JSON.parse(localStorage.getItem("game"));
-  /*if ("gameFile" in localStorage) {data = JSON.parse(localStorage.getItem("gameFile")); localStorage.clear("gameFile")}*/
+  if (localStorage.getItem("gameFile") != null) {data = localStorage.getItem("gameFile"); localStorage.removeItem("gameFile")}
   if (data != null) {loadGame(data)}
 }
 function loadGame(data) {
+  console.log("Loaded Game");
   game = setGame();
   if (typeof data.version == "undefined") {
     game.inc.x = data.increment;
