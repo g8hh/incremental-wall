@@ -99,7 +99,11 @@ function resetPrestige() {
   game.inc.prestige = game.i[1].cost;
   functions();
 }
-function load() {let data = JSON.parse(localStorage.getItem("game")); if (data != null) {loadGame(data)}}
+function load() {
+  let data = JSON.parse(localStorage.getItem("game"));
+  if ("gameFile" in localStorage) {data = JSON.parse(localStorage.getItem("gameFile"))}
+  if (data != null) {loadGame(data)}
+}
 function loadGame(data) {
   game = setGame();
   if (typeof data.version == "undefined") {
