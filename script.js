@@ -6,7 +6,7 @@ function setGame() {
     a: {count: [0, 0, 0, 0], rate: 25, prestige: {count: 0, at: null}},
     aa: [0, 0, 0, 0],
     s: [null, {count: 0, cost: [1e20, 1e21, 1e23, "Max", "Max", "Max"]}, {count: 0, cost: [1e22, "Max", "Max", "Max", "Max", "Max"]}, {count: 0, cost: [1e24, "Max", "Max", "Max", "Max", "Max"]}],
-    pp: {x: 0, total: 0, gain: 1, req: 1e9, refund: 0, start: 0, end: 0, time: 0},
+    pp: {x: 0, total: 0, gain: 1, req: 1e9, refund: 0, start: 0, end: 0, time: Infinity, best: Infinity},
     u: [null, {count: 0, max: 5, cost: 1}, {count: 0, max: 5, cost: 2}, {count: 0, max: 5, cost: 10}],
     pi: [null, {x: 0, count: 0, cost: 10}, {x: 0, count: 0, cost: 1000}, {x: 0, count: 0, cost: 1e6}],
     c: [null, {in: false, count: 0, goal: [1e12, 1e17, 1e19, 4.92e20, "Completed", "Completed"]}, {in: false, count: 0, goal: [5.12e9, 2.5e10, "Completed", "Completed", "Completed", "Completed", "Completed", "Completed", "Completed", "Completed", "Completed"]}, {in: false, count: 0, goal: [1e8, "Completed", "Completed", "Completed", "Completed", "Completed"]}, {in: false, count: 0, goal: [2.43e19, "Completed", "Completed", "Completed", "Completed", "Completed"]}],
@@ -55,7 +55,7 @@ const alayer = (a, rate) => {
 }
 
 //Functions relating to changes to the save data
-function save() {localStorage.setItem("game"), JSON.stringify(game)}
+function save() {localStorage.setItem("game", JSON.stringify(game))}
 function confirmReset() {
   if ((game.confirm.reset % 2) == 1) {
     let confirmed = confirm("Are you sure you want to reset? You will lose all of your progress!");
@@ -101,11 +101,11 @@ function resetPrestige() {
 }
 function load() {
   let data = JSON.parse(localStorage.getItem("game"));
-  if (localStorage.getItem("gameFile") != null && localStorage.getItem("game") == null) {data = localStorage.getItem("gameFile"); localStorage.removeItem("gameFile")}
+  if (localStorage.getItem("gameFile") != null) {data = localStorage.getItem("gameFile"); localStorage.removeItem("gameFile")}
   if (data != null) {loadGame(data)}
 }
 function loadGame(data) {
-  console.log("Loaded Game");
+  console.log("Loaded Game")
   game = setGame();
   if (typeof data.version == "undefined") {
     game.inc.x = data.increment;
@@ -134,17 +134,74 @@ function loadGame(data) {
     console.log("Loaded version 0.0.7");
   }
   else {
-    if (typeof data.inc != "undefined") game.inc = data.inc;
-    if (typeof data.i != "undefined") game.i = data.i;
-    if (typeof data.a != "undefined") game.a = data.a;
+    if (typeof data.inc.x != "undefined") game.inc.x = data.inc.x;
+    if (typeof data.inc.prestige != "undefined") game.inc.prestige = data.inc.prestige;
+    if (typeof data.inc.total != "undefined") game.inc.total = data.inc.total;
+    if (typeof data.i[0].x != "undefined") game.i[0].x = data.i[0].x;
+    if (typeof data.i[1].x != "undefined") game.i[1].x = data.i[1].x;
+    if (typeof data.i[1].count != "undefined") game.i[1].count = data.i[1].count;
+    if (typeof data.i[1].cost != "undefined") game.i[1].cost = data.i[1].cost;
+    if (typeof data.i[2].x != "undefined") game.i[2].x = data.i[2].x;
+    if (typeof data.i[2].count != "undefined") game.i[2].count = data.i[2].count;
+    if (typeof data.i[2].cost != "undefined") game.i[2].cost = data.i[2].cost;
+    if (typeof data.i[3].x != "undefined") game.i[3].x = data.i[3].x;
+    if (typeof data.i[3].count != "undefined") game.i[3].count = data.i[3].count;
+    if (typeof data.i[3].cost != "undefined") game.i[3].cost = data.i[3].cost;
+    if (typeof data.a.count != "undefined") game.a.count = data.a.count;
+    if (typeof data.a.rate != "undefined") game.a.rate = data.a.rate;
+    if (typeof data.a.prestige.count != "undefined") game.a.prestige.count = data.a.prestige.count;
+    if (typeof data.a.prestige.at != "undefined") game.a.prestige.at = data.a.prestige.at;
     if (typeof data.aa != "undefined") game.aa = data.aa;
-    if (typeof data.s != "undefined") game.s = data.s;
-    if (typeof data.pp != "undefined") game.pp = data.pp;
-    if (typeof data.u != "undefined") game.u = data.u;
-    if (typeof data.pi != "undefined") game.pi = data.pi;
-    if (typeof data.c != "undefined") game.c = data.c;
+    if (typeof data.s.count != "undefined") game.s.counu= data.s.count;
+    if (typeof data.s.cost != "undefined") game.s.cost = data.s.cost;
+    if (typeof data.s.count != "undefined") game.s.count = data.s.count;
+    if (typeof data.s.cost != "undefined") game.s.cost = data.s.cost;
+    if (typeof data.s.count != "undefined") game.s.count = data.s.count;
+    if (typeof data.s.cost != "undefined") game.s.cost = data.s.cost
+    if (typeof data.pp.x != "undefined") game.pp.x = data.pp.x;
+    if (typeof data.pp.total != "undefined") game.pp.total = data.pp.total;
+    if (typeof data.pp.gain != "undefined") game.pp.gain = data.pp.gain;
+    if (typeof data.pp.req != "undefined") game.pp.req = data.pp.req;
+    if (typeof data.pp.refund != "undefined") game.pp.refund = data.pp.refund
+    if (typeof data.pp.start != "undefined") game.pp.start = data.pp.start;
+    if (typeof data.pp.end != "undefined") game.pp.end = data.pp.end;
+    if (typeof data.pp.time != "undefined") game.pp.time = data.pp.time;
+    if (typeof data.pp.best != "undefined") game.pp.best = data.pp.best;
+    if (typeof data.u[1].cost != "undefined") game.u[1].cost = data.u[1].cost;
+    if (typeof data.u[1].max != "undefined") game.u[1].max = data.u[1].max;
+    if (typeof data.u[1].count != "undefined") game.u[1].count = data.u[1].count;
+    if (typeof data.u[2].cost != "undefined") game.u[2].cost = data.u[2].cost;
+    if (typeof data.u[2].max != "undefined") game.u[2].max = data.u[2].max;
+    if (typeof data.u[2].count != "undefined") game.u[2].count = data.u[2].count;
+    if (typeof data.u[3].cost != "undefined") game.u[3].cost = data.u[3].cost;
+    if (typeof data.u[3].max != "undefined") game.u[3].max = data.u[3].max;
+    if (typeof data.u[3].count != "undefined") game.u[3].count = data.u[3].count;
+    if (typeof data.pi[1].x != "undefined") game.pi[1].x = data.pi[1].x;
+    if (typeof data.pi[1].count != "undefined") game.pi[1].count = data.pi[1].count;
+    if (typeof data.pi[1].cost != "undefined") game.pi[1].cost = data.pi[1].cost;
+    if (typeof data.pi[2].x != "undefined") game.pi[2].x = data.pi[2].x;
+    if (typeof data.pi[2].count != "undefined") game.pi[2].count = data.pi[2].count;
+    if (typeof data.pi[2].cost != "undefined") game.pi[2].cost = data.pi[2].cost;
+    if (typeof data.pi[3].x != "undefined") game.pi[3].x = data.pi[3].x;
+    if (typeof data.pi[3].count != "undefined") game.pi[3].count = data.pi[3].count;
+    if (typeof data.pi[3].cost != "undefined") game.pi[3].cost = data.pi[3].cost;
+    if (typeof data.c[1].in != "undefined") game.c[1].in = data.c[1].in;
+    if (typeof data.c[1].count != "undefined") game.c[1].count = data.c[1].count;
+    if (typeof data.c[1].cost != "undefined") game.c[1].cost = data.c[1].cost;
+    if (typeof data.c[2].in != "undefined") game.c[2].in = data.c[2].in;
+    if (typeof data.c[2].count != "undefined") game.c[2].count = data.c[2].count;
+    if (typeof data.c[2].cost != "undefined") game.c[2].cost = data.c[2].cost;
+    if (typeof data.c[3].in != "undefined") game.c[3].in = data.c[3].in;
+    if (typeof data.c[3].count != "undefined") game.c[3].count = data.c[3].count;
+    if (typeof data.c[3].cost != "undefined") game.c[3].cost = data.c[3].cost;
+    if (typeof data.c[4].in != "undefined") game.c[4].in = data.c[4].in;
+    if (typeof data.c[4].count != "undefined") game.c[4].count = data.c[4].count;
+    if (typeof data.c[4].cost != "undefined") game.c[4].cost = data.c[4].cost;
     if (typeof data.unlocked != "undefined") game.unlocked = data.unlocked;
-    if (typeof data.confirm != "undefined") game.confirm = data.confirm;
+    if (typeof data.confirm.reset != "undefined") game.confirm.reset = data.confirm.reset;
+    if (typeof data.confirm.prestige != "undefined") game.confirm.prestige = data.confirm.prestige;
+    if (typeof data.confirm.challenge != "undefined") game.confirm.challenge = data.confirm.challenge;
+    if (typeof data.confirm.WIP != "undefined") game.confirm.WIP = data.confirm.WIP;
     if (typeof data.stats != "undefined") game.stats = data.stats;
     if (typeof data.inTab != "undefined") game.inTab = data.inTab;
     if (typeof data.inSubTab != "undefined") game.inSubTab = data.inSubTab;
@@ -185,7 +242,7 @@ function loadToggle() {
     }
   }
 }
-function exporty() {copyStringToClipboard(btoa(JSON.strigify(game)))}
+function exporty() {copyStringToClipboard(btoa(JSON.stringify(game)))}
 function importy() {let data = JSON.parse(atob(prompt("Paste your save code here."))); if (data !== "") {loadGame(data)}}
 load();
 setInterval (function () {localStorage.setItem("game", JSON.stringify(game))}, 1000);
@@ -215,7 +272,37 @@ function subTab(s) {
 function e(num, exp, dec) {
   if (typeof num == "string") {return num} else if (num >= 1e6) {return Number(num).toExponential(exp)} else {return num.toFixed(dec)}
 }
-
+/*function time2(time){ // works now
+  if (typeof x == "NaN") {return "Infinity Years"}
+  let x = Math.round(time / 1000);
+  let temp = 0;
+  let name = "";
+  let first = true;
+  if (x > 3.1536e6){temp = Math.floor(x/3.1536e6);x -= temp*3.1536e6;name += temp + " Years, ";if (first){first = false}else{return name.slice(0,-2)}}
+  if (x > 86400){temp = Math.floor(x/86400);x -= temp*86400;name += temp + " Days, ";if (first){first = false}else{return name.slice(0,-2)}}
+  if (x > 3600){temp = Math.floor(x/3600);x -= temp*3600;name += temp + " Hours, ";if (first){first = false}else{return name.slice(0,-2)}}
+  if (x > 60){temp = Math.floor(x/60);x -= temp*60;name += temp + " Minutes, ";if (first){first = false}else{return name.slice(0,-2)}}
+  name += x + " Seconds"
+  return name
+}*/
+function time(time) {
+  let x = Math.round(time / 1000);
+  if (x == Infinity) {return "Infinity Years"}
+  if (x >= 3.1536e6) {return Math.floor(x / 3.1536e6) + " Years, " + Math.floor((x % 3.1536e6) / 86400) + " Days"}
+  if (x >= 86400) {return Math.floor(x / 86400) + " Days, " + Math.floor((x % 86400) / 3600) + " Hours"}
+  if (x >= 3600) {return Math.floor(x / 3600) + " Hours, " + Math.floor((x % 3600) / 60) + " Minutes"}
+  if (x >= 60) {return Math.floor(x / 60) + " Minutes, " + Math.floor(x % 60) + " Seconds"}
+  if (x >= 0) {return Math.floor(x) + " Seconds"}
+}
+function timeJoke(time){//lol
+  time /= 1000
+  if (typeof x == "NaN") {return "Infinity Wars"}
+  if (time > 3.1536e6){return "Go finish AD while you wait"}
+  if (time > 86400){return "Prepare to wait, this is gonna take some days"}
+  if (time > 3600){return "Hey with some patience you might see it finish"}
+  if (time > 60){return "Oh timers dropping, too bad you can't see it"}
+  return "Think you should give up..."
+}
 //Display related functions
 function functions() {unlock(); values(); display()}
 function unlock() {
@@ -318,13 +405,21 @@ function unlock() {
   for (let i = 1; i < 5; i++) {
     if (game.c[i].in == true) {
       doc("cprogress").style.display = "inline";
+      doc("cprogressTime").style.display = "inline";
+      doc("cnum").innerHTML = i;
+      doc("cnumTime").innerHTML = i;
       doc("cgoal").innerHTML = e(game.c[i].goal[game.c[i].count] - game.inc.prestige, 2);
+      if ((game.a.count[0] % 2) == 1) {doc("ctime").innerHTML = time((game.c[i].goal[game.c[i].count] - game.inc.prestige) / (game.i[0].x * (1 / game.a.rate)))}
+      else {doc("ctime").innerHTML = "Infinity Years"}
       if (game.inc.prestige >= game.c[i].goal[game.c[i].count]) {
-        doc("cgoal").innerHTML = 0;
+        doc("cprogress").style.display = "none";
+        doc("cprogressTime").style.display = "none";
         doc("ccomplete").style.display = "inline";
       }
     }
   }
+  if ((game.stats % 2) == 1) {doc("stats").style.display = "inline"}
+  if ((game.stats % 2) == 0) {doc("stats").style.display = "none"}
 }
 function values() {
   game.i[0].x = Math.floor((((game.i[1].count * (game.u[1].count + 1)) * ((game.i[2].count + 1) * (game.u[2].count + 1))) ** ((game.i[3].count + 1) * (1 + (game.u[3].count / 30)))) * ((1 + Math.log10(game.pp.x + 1)) ** 1.20484));
@@ -345,6 +440,7 @@ function values() {
     game.pp.gain = ((game.pi[1].count * (game.pi[2].count + 1)) ** (game.pi[3].count + 1)) + Math.floor(((Math.abs(Math.log10(game.inc.prestige) - (Math.log10(game.pp.req) - 1)) - ((Math.log10(game.pp.req) - 1) - Math.log10(game.inc.prestige))) / 4) + 0.5);
   }
   else {game.pp.gain = 0}
+  if (game.pp.time < game.pp.best && game.pp.gain != 0) {game.pp.best = game.pp.time}
   game.u[1].cost = Math.floor((game.u[1].count + 1) ** 1.25);
   game.u[2].cost = Math.ceil(1 + (1.99 ** (game.u[2].count * 1.2)));
   game.u[3].cost = Math.floor(10 ** ((game.u[3].count + 1) * 1.05));
@@ -387,10 +483,10 @@ function display() {
   doc("c2reward").innerHTML = game.c[2].count;
   doc("statTotalPP").innerHTML = e(game.pp.total, 2);
   doc("statPPBoost").innerHTML = e((1 + Math.log10(game.pp.x + 1)) ** 1.20483, 2, 2);
-  doc("statPPGain").innerHTML = game.pp.gain;
-  doc("statPPTime").innerHTML = game.pp.time;
-  doc("statIncTotal").innerHTML = game.inc.total;
-  doc("statIncPrestige").innerHTML = game.inc.prestige;
+  doc("statPPGain").innerHTML = e(game.pp.gain, 2);
+  doc("statPPTime").innerHTML = time(game.pp.best);
+  doc("statIncTotal").innerHTML = e(game.inc.total, 2);
+  doc("statIncPrestige").innerHTML = e(game.inc.prestige, 2);
   doc("statARate").innerHTML = game.a.rate + "/sec";
 }
 function render() {
@@ -412,6 +508,7 @@ function hide() {
   doc("incTopSec").style.display = "none";
   doc("aprestige").style.display = "none";
   doc("cprogress").style.display = "none";
+  doc("cprogressTime").style.display = "none";
   doc("ccomplete").style.display = "none";
   doc("refund").style.display = "none";
   doc("i2").style.display = "none";
@@ -522,17 +619,21 @@ function confirmPrestige() {
 function prestige() {
   let time = new Date();
   let getTime = time.getTime();
-  if (game.inc.prestige >= game.pp.req && canComChall == false) {game.pp.x += game.pp.gain; game.pp.total += game.pp.gain}
-  ppgainLastPrestige = 0;
-  game.pp.end = getTime;
-  game.pp.time = game.pp.end - game.pp.start;
-  game.pp.start = getTime;
-  if (ppLastTen.length < 10) {ppLastTen.push(ppgainLastPrestige / (game.pp.time / 1000))}
-  else {ppLastTen.shift(); ppLastTen.push(ppgainLastPrestige / (game.pp.time / 1000))}
-  for (let i = 0; i < ppLastTen.length; i++) {ppAverage += ppLastTen[i]}
-  ppAverage /= ppLastTen.length;
+  if (game.inc.prestige >= game.pp.req && canComChall == false) {
+    game.pp.x += game.pp.gain;
+    game.pp.total += game.pp.gain
+    ppgainLastPrestige = game.pp.gain;
+    game.pp.end = getTime;
+    game.pp.time = game.pp.end - game.pp.start;
+    game.pp.start = getTime;
+    if (ppLastTen.length < 10) {ppLastTen.push(ppgainLastPrestige / (game.pp.time / 1000))}
+    else {ppLastTen.shift(); ppLastTen.push(ppgainLastPrestige / (game.pp.time / 1000))}
+    for (let i = 0; i < ppLastTen.length; i++) {ppAverage += ppLastTen[i]}
+    ppAverage /= ppLastTen.length;
+  }
   resetPrestige();
   hide();
+  loadToggle();
   functions();
 }
 function upgrade(u) {
@@ -576,7 +677,6 @@ function challenge(c) {
   hide();
   functions();
   doc("cprogress").style.display = "inline";
-  doc("cnum").innerHTML = c;
 }
 function ccomplete() {
   if (game.c[1].in == true && game.inc.prestige >= game.c[1].goal[game.c[1].count]) {
@@ -597,7 +697,7 @@ function ccomplete() {
   cexit();
 }
 function confirmCexit() {
-  if ((game.confirm.challenge % 2) == 1 && canComChall == false) {
+  if ((game.confirm.challenge % 2) == 1 && canComChall) {
     let confirmed = confirm("Are you sure you want to exit the Challenge? You will not get rewarded for completing it")
     if (confirmed) {cexit()}
   }
@@ -619,43 +719,77 @@ function cexit() {
 
 //Miscellaneous functions
 document.addEventListener("keydown", function(event) {
-  if (event.key == "a") {pressed.a = true}
-  if (event.key == "p") {pressed.p = true}
-  if (event.key == "r") {pressed.r = true}
+  if (event.key == "a" || event.key == "A") {pressed.a = true}
+  if (event.key == "p" || event.key == "P") {pressed.p = true}
+  if (event.key == "r" || event.key == "R") {pressed.r = true}
   if (event.key == "1") {pressed.one = true}
   if (event.key == "2") {pressed.two = true}
-  if (event.key == "shift") {pressed.shift = true}
+  if (event.keyCode == 16) {pressed.shift = true}
 });
 document.addEventListener("keyup", function(event) {
-  if (event.key == "a") {pressed.a = false}
-  if (event.key == "p") {pressed.p = false}
-  if (event.key == "r") {pressed.r = false}
+  if (event.key == "a" || event.key == "A") {pressed.a = false}
+  if (event.key == "p" || event.key == "P") {pressed.p = false}
+  if (event.key == "r" || event.key == "R") {pressed.r = false}
   if (event.key == "1") {pressed.one = false}
   if (event.key == "2") {pressed.two = false}
-  if (event.key == "shift") {pressed.shift = false}
+  if (event.keyCode == 16) {pressed.shift = false}
 });
 document.addEventListener("keypress", function(event) {
+  /*if (pressed.a) {
+    let unlockInc = [2500, 250000, 2.5e7, 2.5e9];
+    let unlockPP = [5, 31, 177, 1000];
+    let unlockeda = 0;
+    let unlockedaa = 0;
+    let enableda = 0;
+    let enabledaa = 0;
+    for (let i = 0; i < 4; i++) {
+      if (game.inc.prestige >= unlockInc[i] || game.pp.total >= unlockPP[i]) {unlockeda++}
+      if ((game.a.count[i] % 2) == 1) {enableda++}
+      if (game.pp.total >= unlockPP[i]) {unlockedaa++}
+      if ((game.aa[i] % 2) == 1) {enabledaa++}
+      if (game.inc.prestige >= unlockInc[i]) {
+        if ((game.a.count[i] % 2) == 0) {
+          automate(i);
+          console.log("Auto 1" + i)
+        }
+        if (game.pp.total >= unlockPP[i]) {
+          if ((game.aa[i] % 2) == 0) {
+            aautomate(i);
+            console.log("Auto 2" + i)
+          }
+        }
+      }
+    }
+    if (enableda == unlockeda) {for (let i = 0; i < 4; i ++) {automate(i)}}
+    if (enabledaa == unlockedaa) {for (let i = 0; i < 4; i++) {aautomate(i)}}
+  }*/
   if (pressed.a && pressed.one) {
     let unlockInc = [2500, 250000, 2.5e7, 2.5e9];
     let unlockPP = [5, 31, 177, 1000];
+    let unlocked = 0;
     let enabled = 0;
-    for (let i = 0; i < 4; i++) {if ((game.a.count[i] % 2) == 1) {enabled++}}
-    if (enabled == 0 || enabled == 4) {
-      for (let i = 0; i < 4; i++) {if (game.inc.prestige >= unlockInc[i] || game.pp.total >= unlockPP[i]) {automate(i)}}
+    for (let i = 0; i < 4; i++) {
+      if (game.inc.prestige >= unlockInc[i] || game.pp.total >= unlockPP[i]) {unlocked++}
+      if ((game.a.count[i] % 2) == 1) {enabled++}
     }
-    if (enabled > 0 && enabled < 4) {
-      for (let i = 0; i < 4; i++) {
+    if (enabled == 0 || enabled == unlocked) {for (let i = 0; i < unlocked; i++) {automate(i)}}
+    else {
+      for (let i = 0; i < unlocked; i++) {
         if ((game.inc.prestige >= unlockInc[i] || game.pp.total >= unlockPP[i]) && (game.a.count[i] % 2) == 0) {automate(i)}
       }
     }
-  }
+  }//These Work
   if (pressed.a && pressed.two) {
     let unlock = [5, 31, 177, 1000];
+    let unlocked = 0;
     let enabled = 0;
-    for (let i = 0; i < 4; i++) {if ((game.a.count[i] % 2) == 1) {enabled++}}
-    if (enabled == 0 || enabled == 4) {for (let i = 0; i < 4; i++) {if (game.pp.total >= unlock[i]) {aautomate(i)}}}
-    if (enabled > 0 && enabled < 4) {for (let i = 0; i < 4; i++) {if (game.pp.total >= unlock[i] && (game.aa[i]) == 0) {aautomate(i)}}}
-  }
+    for (let i = 0; i < 4; i++) {
+      if (game.pp.total >= unlock[i]) {unlocked++}
+      if ((game.aa[i] % 2) == 1) {enabled++}
+    }
+    if (enabled == 0 || enabled == unlocked) {for (let i = 0; i < unlocked; i++) {aautomate(i)}}
+    else {for (let i = 0; i < unlocked; i++) {if (game.pp.total >= unlock[i] && (game.aa[i] % 2) == 0) {aautomate(i)}}}
+  }//These Work
   if (pressed.a && pressed.p) {automate('prestige'); doc("apenabledInput").checked = trued[game.a.prestige.count % 2]}
   if (pressed.shift && pressed.p) {prestige()}
   if (pressed.r) {refund()}
