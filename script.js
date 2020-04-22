@@ -24,9 +24,7 @@ var c4effect = 1;
 var ppgainLastPrestige = 0;
 var ppLastTen = [];
 var ppAverage = 0;
-var pressed = {
-  a: false, p: false, r: false, one: false, two: false, shift: false
-}
+var pressed = {a: false, p: false, r: false, one: false, two: false, shift: false}
 var cmax = [null, 4, 2, 1, 1];
 const trued = [false, true];
 const enabled = ["Disabled", "Enabled"];
@@ -157,7 +155,7 @@ function loadGame(data) {
     if (typeof data.s[2].count != "undefined") game.s[2].count = data.s[2].count;
     if (typeof data.s[2].cost != "undefined") game.s[2].cost = data.s[2].cost;
     if (typeof data.s[3].count != "undefined") game.s[3].count = data.s[3].count;
-    if (typeof data.s[3].cost != "undefined") game.s[3].cost = data.s[3].cost
+    if (typeof data.s[3].cost != "undefined") game.s[3].cost = data.s[3].cost;
     if (typeof data.pp.x != "undefined") game.pp.x = data.pp.x;
     if (typeof data.pp.total != "undefined") game.pp.total = data.pp.total;
     if (typeof data.pp.gain != "undefined") game.pp.gain = data.pp.gain;
@@ -205,7 +203,6 @@ function loadGame(data) {
     if (typeof data.stats != "undefined") game.stats = data.stats;
     if (typeof data.inTab != "undefined") game.inTab = data.inTab;
     if (typeof data.inSubTab != "undefined") game.inSubTab = data.inSubTab;
-    if (typeof data.version != "undefined") game.version = data.version;
     console.log("Loaded version " + game.version[0] + "." + game.version[1] + "." + game.version[2])
   }
   hide();
@@ -530,13 +527,32 @@ function hide() {
   doc("stats").style.display = "none";
 }
 function confirms(c) {
-  if (c == 'reset') {game.confirm.reset++}
-  if (c == 'prestige') {game.confirm.prestige++}
-  if (c == 'challenge') {game.confirm.challenge++}
-  if (c == 'WIP') {game.confirm.WIP++}
-  loadToggle();
+  if (c == 'reset') {
+    game.confirm.reset++;
+    if ((game.confirm.reset % 2) == 1) {doc("ocReset").style.backgroundColor = "rgb(34, 139, 34)"}
+    if ((game.confirm.reset % 2) == 0) {doc("ocReset").style.backgroundColor = "rgb(225, 0, 0)"}
+  }
+  if (c == 'prestige') {
+    game.confirm.prestige++;
+    if ((game.confirm.prestige % 2) == 1) {doc("ocPrestige").style.backgroundColor = "rgb(34, 139, 34)"}
+    if ((game.confirm.prestige % 2) == 0) {doc("ocPrestige").style.backgroundColor = "rgb(225, 0, 0)"}
+  }
+  if (c == 'challenge') {
+    game.confirm.challenge++;
+    if ((game.confirm.challenge % 2) == 1) {doc("ocChallenge").style.backgroundColor = "rgb(34, 139, 34)"}
+    if ((game.confirm.challenge % 2) == 0) {doc("ocChallenge").style.backgroundColor = "rgb(225, 0, 0)"}
+  }
+  if (c == 'WIP') {
+    game.confirm.WIP++;
+    if ((game.confirm.WIP % 2) == 1) {doc("ocWIP").style.backgroundColor = "rgb(34, 139, 34)"}
+    if ((game.confirm.WIP % 2) == 0) {doc("ocWIP").style.backgroundColor = "rgb(225, 0, 0)"}
+  }
 }
-function stats() {game.stats++; loadToggle()}
+function stats() {
+  game.stats++;
+  if ((game.stats % 2) == 1) {doc("stats").style.display = "inline"; doc("ocStats").style.backgroundColor = "rgb(34, 139, 34)"}
+  if ((game.stats % 2) == 0) {doc("stats").style.display = "none"; doc("ocStats").style.backgroundColor = "rgb(255, 0, 0)"}
+}
 
 //0th Prestige layer `Increment`
 function increment(i) {
@@ -633,7 +649,6 @@ function prestige() {
   }
   resetPrestige();
   hide();
-  loadToggle();
   functions();
 }
 function upgrade(u) {
