@@ -152,7 +152,7 @@ function loadGame(data) {
     if (typeof data.a.prestige.count != "undefined") game.a.prestige.count = data.a.prestige.count;
     if (typeof data.a.prestige.at != "undefined") game.a.prestige.at = data.a.prestige.at;
     if (typeof data.aa != "undefined") game.aa = data.aa;
-    if (typeof data.s[1].count != "undefined") game.s[1].counu= data.s[1].count;
+    if (typeof data.s[1].count != "undefined") game.s[1].count = data.s[1].count;
     if (typeof data.s[1].cost != "undefined") game.s[1].cost = data.s[1].cost;
     if (typeof data.s[2].count != "undefined") game.s[2].count = data.s[2].count;
     if (typeof data.s[2].cost != "undefined") game.s[2].cost = data.s[2].cost;
