@@ -152,12 +152,12 @@ function loadGame(data) {
     if (typeof data.a.prestige.count != "undefined") game.a.prestige.count = data.a.prestige.count;
     if (typeof data.a.prestige.at != "undefined") game.a.prestige.at = data.a.prestige.at;
     if (typeof data.aa != "undefined") game.aa = data.aa;
-    if (typeof data.s.count != "undefined") game.s.counu= data.s.count;
-    if (typeof data.s.cost != "undefined") game.s.cost = data.s.cost;
-    if (typeof data.s.count != "undefined") game.s.count = data.s.count;
-    if (typeof data.s.cost != "undefined") game.s.cost = data.s.cost;
-    if (typeof data.s.count != "undefined") game.s.count = data.s.count;
-    if (typeof data.s.cost != "undefined") game.s.cost = data.s.cost
+    if (typeof data.s[1].count != "undefined") game.s[1].counu= data.s[1].count;
+    if (typeof data.s[1].cost != "undefined") game.s[1].cost = data.s[1].cost;
+    if (typeof data.s[2].count != "undefined") game.s[2].count = data.s[2].count;
+    if (typeof data.s[2].cost != "undefined") game.s[2].cost = data.s[2].cost;
+    if (typeof data.s[3].count != "undefined") game.s[3].count = data.s[3].count;
+    if (typeof data.s[3].cost != "undefined") game.s[3].cost = data.s[3].cost
     if (typeof data.pp.x != "undefined") game.pp.x = data.pp.x;
     if (typeof data.pp.total != "undefined") game.pp.total = data.pp.total;
     if (typeof data.pp.gain != "undefined") game.pp.gain = data.pp.gain;
