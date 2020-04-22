@@ -15,7 +15,7 @@ function setGame() {
     stats: 0,
     inTab: 1,
     inSubTab: 1,
-    version: [0, 0, 8],
+    version: [0, 0, 9],
   }
 }
 var game = setGame();
