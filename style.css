@@ -1,8 +1,14 @@
 body {background-color: rgb(0, 0, 0); user-select: none; cursor: default}
+table {margin-left: auto; margin-right: auto; empty-cells: hide}
 
-.largeText {color: rgb(150, 150, 150); font-size: 24px}
-.bigText {color: rgb(150, 150, 150); font-size: 20px}
-.smallText {color: rgb(150, 150, 150); font-size: 16px}
+.hugeText {font-size: 30px}
+.largeText {font-size: 24px}
+.bigText {font-size: 20px}
+.mediumText {font-size: 18px}
+.smallText {font-size: 16px}
+.tinyText {font-size: 12px}
+.microText {font-size: 8px}
+.text {color: rgb(150, 150, 150)}
 .redText {color: rgb(220, 20, 60)}
 .orangeText {color: rgb(255, 165, 0)}
 .yellowText {color: rgb(222, 222, 0)}
@@ -28,6 +34,7 @@ body {background-color: rgb(0, 0, 0); user-select: none; cursor: default}
   transition: color .2s, background-color .2s;
 }
 .tab:hover {color: rgb(200, 200, 200); background-color: rgb(0, 0, 0)}
+.atab {width: 185px}
 .button {
   background-color: rgb(25, 25, 25);
   border-color: rgb(75, 0, 255);
@@ -52,13 +59,27 @@ body {background-color: rgb(0, 0, 0); user-select: none; cursor: default}
   border-style: solid;
   padding: 5px;
   margin: 5px;
-  margin-top: 25px;
-  width: 150px;
+  width: 155px;
   font-size: 21px;
   cursor: pointer;
   transition: color .2s, background-color .2s;
 }
 .tabBlue:hover {color: rgb(0, 0, 0); background-color: rgb(0, 0, 200)}
+.tabGreen {
+  color: rgb(150, 200, 50);
+  background-color: rgb(0, 0, 0);
+  border-color: rgb(150, 200, 50);
+  border-width: 2px;
+  border-radius: 5px;
+  border-style: solid;
+  padding: 5px;
+  margin: 5px;
+  width: 155px;
+  font-size: 21px;
+  cursor: pointer;
+  transition: color .2s, background-color .2s;
+}
+.tabGreen:hover {color: rgb(0, 0, 0); background-color: rgb(150, 200, 50)}
 .option {
   color: rgb(200, 200, 200);
   background-color: rgb(55, 55, 55);
@@ -76,7 +97,14 @@ body {background-color: rgb(0, 0, 0); user-select: none; cursor: default}
   position: relative;
 }
 .option:hover {color: rgb(0, 0, 0); background-color: rgb(34, 139, 34)}
+.b {
+  color: rgb(150, 200, 50);
+  border-color: rgb(150, 200, 50);
+  border-width: 2px;
+  width: 180px;
+}
 
+#apxTop {font-size: 32px}
 #ppxTop {font-size: 36px}
 #incxTop {font-size: 42px}
 #ccomplete {width: 210px}
@@ -92,4 +120,8 @@ body {background-color: rgb(0, 0, 0); user-select: none; cursor: default}
   bottom: 3px;
 }
 #apenabledInput {cursor: pointer}
+#refund {color: rgb(0, 0, 200)}
 #stats {position: fixed; top: 5px; left: 5px; z-index: -1}
+#unlocks {position: fixed; top: 5px; right: 5px; text-align: right; z-index: -1}
+#game {display: none}
+#versions {position: fixed; bottom: 5px; left: 5px}
