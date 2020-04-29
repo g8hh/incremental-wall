@@ -362,7 +362,7 @@ function subSubTab(s) {
   game.in.subSubTabA = s;
 }
 function e(num, exp, dec) {
-  if (typof num == "undefined") {return}
+  if (typeof num == "undefined") {return}
   if (typeof num == "string") {return num} else if (num >= 1e6) {return Number(num).toExponential(exp)} else {return num.toFixed(dec)}
 }
 function time(time) {
