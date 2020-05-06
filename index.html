@@ -7,14 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164027230-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-164027230-1');
-    </script>
   </head>
   <body>
     <div class="center" id="loading">
@@ -54,8 +46,9 @@
       <div id="unlocks"><br>
         <div><span class="smallText text" id="unlockInc">Unlock <span class="redText" id="unlockIncType">Automation</span> in <span class="purpleText" id="unlockIncReq">0</span> Increment</span></div>
         <div><span class="smallText text" id="unlockPinc">Unlock <span class="redText" id="unlockPincType">Upgrades</span> in <span class="blueText" id="unlockPincReq">0</span> Prestige Points</span></div>
+        <div><span class="smallText text" id="unlockAinc">Unlock <span class="redText" id="unlockAincType">Increment Boosts</span> in <span class="greenText" id="unlockAincReq">0</span> Ascension Points</span></div>
         <div><span class="smallText text" id="unlockI">Next Increment unlocks in <span class="purpleText" id="unlockIReq">0</span> Increment</span></div>
-        <div><span class="smallText text" id="unlockA">Next Automate unlocks in <span class="purpleText" id="unlockAReq">0</span> <span id="unlockACurrency">Increment</span></span></div>
+        <div><span class="smallText text" id="unlockA">Next Automate unlocks in <span class="purpleText" id="unlockAReq">0</span> Increment</span></div>
         <div><span class="smallText text" id="unlockPi">Next Pincrement unlocks in <span class="blueText" id="unlockPiReq">0</span> Prestige Points</span></div>
       </div><!--Unlocks-->
       <div class="center">
@@ -106,31 +99,35 @@
       </div><!--Options Tab-->
       <div class="center" id="tab4">
       <div>
-        <button class="button" id="aprestige"><span class="redText">Auto Prestige</span><br><span class="purpleText">At <input id="aprestigeat" oninput="setapat()"> PP</span><br><span class="goldText" id="aprestigeenabled">Disabled</span><input type="checkbox" id="apenabledInput" oninput="automate('prestige')"><span class="bigText text hotkey"> (A+P)</span></button>
+        <button class="button" id="aprestige"><span class="redText">Auto Prestige</span><br><span class="purpleText">At <input id="aprestigeat" oninput="setapat()"> PP</span><br><span class="goldText" id="aprestigeenabled">Disabled</span><input type="checkbox" id="apenabledInput" oninput="automate('prestige')"></button>
+      </div>
+        <div>
+          <button class="button" id="hk1" onclick="hotkey(1)"><span class="redText">Toggle<br>Automation<br></span></button>
+          <button class="button" id="hk2" onclick="hotkey(2)"><span class="redText">Toggle Automation<br>on Prestige</span></button>
+        </div>
+      <div>
+        <button class="button" id="ai0" onclick="automate(0)"><span class="redText">Auto Increment</span><br><span class="purpleText"><span id="ai0rate">0</span>/sec</span><br><span class="goldText" id="a0enabled">Disabled</span></button>
+        <button class="button" id="aa0" onclick="aautomate(0)"><span class="smallText redText">Keep Auto Increment<br>on Prestige</span><br><span class="goldText" id="aa0enabled">Disabled</span></button>
       </div>
       <div>
-        <button class="button" id="ai0" onclick="automate(0)"><span class="redText">Auto Increment</span><br><span class="purpleText"><span id="ai0rate">0</span>/sec</span><br><span class="goldText" id="a0enabled">Disabled</span><span class="bigText text hotkey"> (A+1)</span></button>
-        <button class="button" id="aa0" onclick="aautomate(0)"><span class="smallText redText">Keep Auto Increment<br>on Prestige</span><br><span class="goldText" id="aa0enabled">Disabled</span><span class="bigText text hotkey"> (A+2)</span></button>
+        <button class="button" id="ai1" onclick="automate(1)"><span class="redText">Auto Increment 1</span><br><span class="purpleText"><span id="ai1rate">0</span>/sec</span><br><span class="goldText" id="a1enabled">Disabled</span></button>
+        <button class="button" id="aa1" onclick="aautomate(1)"><span class="smallText redText">Keep Auto Increment 1<br>on Prestige</span><br><span class="goldText" id="aa1enabled">Disabled</span></button>
       </div>
       <div>
-        <button class="button" id="ai1" onclick="automate(1)"><span class="redText">Auto Increment 1</span><br><span class="purpleText"><span id="ai1rate">0</span>/sec</span><br><span class="goldText" id="a1enabled">Disabled</span><span class="bigText text hotkey"> (A+1)</span></button>
-        <button class="button" id="aa1" onclick="aautomate(1)"><span class="smallText redText">Keep Auto Increment 1<br>on Prestige</span><br><span class="goldText" id="aa1enabled">Disabled</span><span class="bigText text hotkey"> (A+2)</span></button>
+        <button class="button" id="ai2" onclick="automate(2)"><span class="redText">Auto Increment 2</span><br><span class="purpleText"><span id="ai2rate">0</span>/sec</span><br><span class="goldText" id="a2enabled">Disabled</span></button>
+        <button class="button" id="aa2" onclick="aautomate(2)"><span class="smallText redText">Keep Auto Increment 2<br>on Prestige</span><br><span class="goldText" id="aa2enabled">Disabled</span></button>
       </div>
       <div>
-        <button class="button" id="ai2" onclick="automate(2)"><span class="redText">Auto Increment 2</span><br><span class="purpleText"><span id="ai2rate">0</span>/sec</span><br><span class="goldText" id="a2enabled">Disabled</span><span class="bigText text hotkey"> (A+1)</span></button>
-        <button class="button" id="aa2" onclick="aautomate(2)"><span class="smallText redText">Keep Auto Increment 2<br>on Prestige</span><br><span class="goldText" id="aa2enabled">Disabled</span><span class="bigText text hotkey"> (A+2)</span></button>
-      </div>
-      <div>
-        <button class="button" id="ai3" onclick="automate(3)"><span class="redText">Auto Increment 3</span><br><span class="purpleText"><span id="ai3rate">0</span>/sec</span><br><span class="goldText" id="a3enabled">Disabled</span><span class="bigText text hotkey"> (A+1)</span></button>
-        <button class="button" id="aa3" onclick="aautomate(3)"><span class="smallText redText">Keep Auto Increment 3<br>on Prestige</span><br><span class="goldText" id="aa3enabled">Disabled</span><span class="bigText text hotkey"> (A+2)</span></button>
+        <button class="button" id="ai3" onclick="automate(3)"><span class="redText">Auto Increment 3</span><br><span class="purpleText"><span id="ai3rate">0</span>/sec</span><br><span class="goldText" id="a3enabled">Disabled</span></button>
+        <button class="button" id="aa3" onclick="aautomate(3)"><span class="smallText redText">Keep Auto Increment 3<br>on Prestige</span><br><span class="goldText" id="aa3enabled">Disabled</span></button>
       </div>
     </div><!--Automation Tab-->
       <div class="center" id="tab5">
       <div>
-        <button class="button" id="s1" onclick="scaling(1)"><span class="redText">Scale Increment 1</span><br><span class="purpleText"><span id="s1count">0</span>/4</span><br><span class="goldText">Cost: <span id="s1cost">0</span></span><br><span class="smallText text">Decrease Increment 1's cost scaling</span></button>
+        <button class="button" id="s1" onclick="scaling(1)"><span class="redText">Scale Increment 1</span><br><span class="purpleText"><span id="s1count">0</span>/5</span><br><span class="goldText">Cost: <span id="s1cost">0</span></span><br><span class="smallText text">Decrease Increment 1's cost scaling</span></button>
       </div>
       <div>
-        <button class="button" id="s2" onclick="scaling(2)"><span class="redText">Scale Increment 2</span><br><span class="purpleText"><span id="s2count">0</span>/3</span><br><span class="goldText">Cost: <span id="s2cost">0</span></span><br><span class="smallText text">Decrease Increment 2's cost scaling</span></button>
+        <button class="button" id="s2" onclick="scaling(2)"><span class="redText">Scale Increment 2</span><br><span class="purpleText"><span id="s2count">0</span>/4</span><br><span class="goldText">Cost: <span id="s2cost">0</span></span><br><span class="smallText text">Decrease Increment 2's cost scaling</span></button>
       </div>
       <div>
         <button class="button" id="s3" onclick="scaling(3)"><span class="redText">Scale Increment 3</span><br><span class="purpleText"><span id="s3count">0</span>/2</span><br><span class="goldText">Cost: <span id="s3cost">0</span></span><br><span class="smallText text">Decrease Increment 3's cost scaling</span></button>
@@ -140,19 +137,19 @@
         <div>
           <button class="tab" id="subTabUpgrades" onclick="subTab(1)">Upgrades</button>
           <button class="tab" id="subTabPincrements" onclick="subTab(2)">P-Increments</button>
-          <button class="tab" id="subTabChallenges" onclick="subTab(3)">P-Challenges</button>
+          <button class="tab" id="subTabPChallenges" onclick="subTab(3)">P-Challenges</button>
         </div>
         <div id="subTab1">
           <br><div class="bigText text">You have <span class="blueText" id="ppxTab">0</span> Prestige Points</div>
           <div class="bigText text">Translated to a <span class="purpleText">*<span id="ppboostTab">0</span></span> multiplier to Increment</div>
           <div>
-            <button class="tabBlue" id="refund" onclick="refund()">Refund<br>Upgrades<br>+<span id="refundx">0</span> PP<br><span class="bigText text hotkey"> (R)</span></button>
+            <button class="tabBlue" id="refund" onclick="refund()"><span class="smallText">Refund Upgrades on next Prestige</span><br>+<span id="refundx">0</span> PP<br><span class="bigText text hotkey"> (R)</span></button>
             <button class="tabBlue" onclick="confirmPrestige()">Prestige<br><span class="smallText purpleText">Next <span id="ppReq">0</span></span><br>+<span id="ppgain">0</span> PP<br><span class="bigText text hotkey"> (Shift+P)</span></button>
           </div>
           <div>
-            <button class="button" id="u1" onclick="upgrade(1)"><span class="smallText text top">Upgrade Increment 1</span><br><span class="redText">Upgrade 1</span><br><span class="blueText"><span id="u1count">0</span>/<span id="u1max">0</span></span><br><span class="goldText">Cost: <span class="blueText" id="u1cost">0</span></span><br><span class="smallText text">But increase cost scaling</span></button>
-            <button class="button" id="u2" onclick="upgrade(2)"><span class="smallText text top">Upgrade Increment 2</span><br><span class="redText">Upgrade 2</span><br><span class="blueText"><span id="u2count">0</span>/<span id="u2max">0</span></span><br><span class="goldText">Cost: <span class="blueText" id="u2cost">0</span></span><br><span class="smallText text">But increase cost scaling</span></button>
-            <button class="button" id="u3" onclick="upgrade(3)"><span class="smallText text top">Upgrade Increment 3</span><br><span class="redText">Upgrade 3</span><br><span class="blueText"><span id="u3count">0</span>/<span id="u3max">0</span></span><br><span class="goldText">Cost: <span class="blueText" id="u3cost">0</span></span><br><span class="smallText text">But increase cost scaling</span></button>
+            <button class="button" id="u1" onclick="upgrade(1)"><span class="smallText text top">Upgrade Increment 1</span><br><span class="redText">Upgrade 1</span><br><span class="blueText"><span id="u1count">0</span>/<span id="u1max">0</span></span><br><span class="goldText">Cost: <span class="blueText" id="u1cost">0</span></span><br><span class="smallText text" id="u1neg">But increase cost scaling</span></button>
+            <button class="button" id="u2" onclick="upgrade(2)"><span class="smallText text top">Upgrade Increment 2</span><br><span class="redText">Upgrade 2</span><br><span class="blueText"><span id="u2count">0</span>/<span id="u2max">0</span></span><br><span class="goldText">Cost: <span class="blueText" id="u2cost">0</span></span><br><span class="smallText text" id="u2neg">But increase cost scaling</span></button>
+            <button class="button" id="u3" onclick="upgrade(3)"><span class="smallText text top">Upgrade Increment 3</span><br><span class="redText">Upgrade 3</span><br><span class="blueText"><span id="u3count">0</span>/<span id="u3max">0</span></span><br><span class="goldText">Cost: <span class="blueText" id="u3cost">0</span></span><br><span class="smallText text" id="u3neg">But increase cost scaling</span></button>
           </div>
         </div><!--Prestige Upgrades-->
         <div id="subTab2">
@@ -166,40 +163,44 @@
         <div id="subTab3">
           <div><button class="tabBlue" onclick="confirmCexit()">Exit Challenge</button></div>
           <div>
-            <button class="button" id="c1" onclick="confirmChallenge(1)"><span class="smallText text">Automation is disabled<br></span><br><span class="redText">Challenge 1</span><br><span class="blueText"><span id="c1count">0</span>/4</span><br><span class="purpleText">Goal: <span id="c1goal">0</span></span><br><span class="smallText text">Reward: Autobuyers are a bit faster. (<span id="c1reward">0</span>/sec)</span></button>
-            <button class="button" id="c2" onclick="confirmChallenge(2)"><span class="smallText text">Upgrades are disabled<br></span><br><span class="redText">Challenge 2</span><br><span class="blueText"><span id="c2count">0</span>/3</span><br><span class="purpleText">Goal: <span id="c2goal">0</span></span><br><span class="smallText text">Reward: Upgrades gain another level. (+<span id="c2reward">0</span>)</span></button>
-            <button class="button" id="c3" onclick="confirmChallenge(3)"><span class="smallText text">Increment's costs have been modified</span><br><span class="redText">Challenge 3</span><br><span class="blueText"><span id="c3count">0</span>/1</span><br><span class="purpleText">Goal: <span id="c3goal">0</span></span><br><span class="smallText text">Reward: Decrease the cost of Increments</span></button>
-            <button class="button" id="c4" onclick="confirmChallenge(4)"><span class="smallText text">Increments increase the cost of other Increments</span><br><span class="redText">Challenge 4</span><br><span class="blueText"><span id="c4count">0</span>/1</span><br><span class="purpleText">Goal: <span id="c4goal">0</span></span><br><span class="smallText text">Reward: Lower the prestige requirement</span></button>
+            <button class="button" id="pc1" onclick="confirmPChallenge(1)"><span class="smallText text">Automation is disabled<br></span><br><span class="redText">Challenge 1</span><br><span class="blueText"><span id="pc1count">0</span>/5</span><br><span class="purpleText">Goal: <span id="pc1goal">0</span></span><br><span class="smallText text">Reward: Autobuyers are<br>a little bit faster.</span></button>
+            <button class="button" id="pc2" onclick="confirmPChallenge(2)"><span class="smallText text">Upgrades are disabled<br></span><br><span class="redText">Challenge 2</span><br><span class="blueText"><span id="pc2count">0</span>/4</span><br><span class="purpleText">Goal: <span id="pc2goal">0</span></span><br><span class="smallText text">Reward: Upgrades gain another level.</span></button>
+            <button class="button" id="pc3" onclick="confirmPChallenge(3)"><span class="smallText text">Increment's costs have been modified</span><br><span class="redText">Challenge 3</span><br><span class="blueText"><span id="pc3count">0</span>/2</span><br><span class="purpleText">Goal: <span id="pc3goal">0</span></span><br><span class="smallText text">Reward: Decrease the cost of Increments</span></button>
+            <button class="button" id="pc4" onclick="confirmPChallenge(4)"><span class="smallText text">Increments increase the cost of other Increments</span><br><span class="redText">Challenge 4</span><br><span class="blueText"><span id="pc4count">0</span>/1</span><br><span class="purpleText">Goal: <span id="pc4goal">0</span></span><br><span class="smallText text">Reward: Lower the prestige requirement</span></button>
+          </div>
+          <div>
+            <button class="button" id="pc5" onclick="confirmPChallenge(5)"><span class="smallText text">Cannot buy or unlock Increments</span><br><span class="redText">Challenge 5</span><br><span class="blueText"><span id="pc5count">0</span>/1</span><br><span class="purpleText">Goal: <span id="pc5goal">0</span></span><br><span class="smallText text">Reward: Challenge 1, 2, 3<br>rewards are 2x better</span></button>
           </div>
         </div><!--Prestige Challenges-->
-      </div><!--Prestige Tab, contains subTabs and subTab's content-->
+      </div><!--Prestige Tab-->
       <div class="center" id="tab7">
         <div>
           <button class="tab" id="subTabBoosts" onclick="subTab(11)">Boosts</button>
-          <button class="tab" id="subTabAincrements" onclick="subTab(12)">Locked</button>
-          <button class="tab" id="subTabMastery" onclick="subTab(13)">Locked</button>
-          <button class="tab" id="subTabAChallenges" onclick="subTab(14)">Locked</button>
+          <button class="tab" id="subTabMastery" onclick="subTab(12)">Mastery</button>
+          <button class="tab" id="subTabAincrements" onclick="subTab(13)">A-Increments</button>
+          <button class="tab" id="subTabAChallenges" onclick="subTab(14)">A-Challenges</button>
         </div>
         <div id="subTab11">
           <br><div class="bigText text">You have <span class="greenText" id="apxTab">0</span> Ascension Points</div>
-          <div class="bigText text">Translated to a <span class="greenText">*<span id="apboostTab">0</span></span> multiplier to Prestige Points</div>
+          <div class="bigText text">Translated to a <span class="blueText">*<span id="apboostTab">0</span></span> multiplier to Prestige Points</div>
+          <div class="bigText text">Translated to <span class="purpleText">+<span id="apboost2Tab">0</span></span> Increment 1 levels on Prestige</div>
           <div class="center">
             <!--<button class="tabGreen" id="respec" onclick="respec('boosts')"><span class="mediumText greenText">Respec Boosts<br>Next Asension<br>+<span id="respecx">0</span> AP</span></button>-->
             <button class="tabGreen" onclick="confirmAscension()">Ascend<br><span class="smallText blueText">Next <span id="apReq">0</span></span><br><span>+<span id="apgain">0</span> AP</span></button>
           </div>
           <div>
-            <button class="tab atab" id="subTabIncBoosts" onclick="subSubTab(111)">Increment Boosts</button>
-            <button class="tab atab" id="subTabPincBoosts" onclick="subSubTab(112)">Prestige Boosts</button>
+            <button class="tab atab" id="subSubTabIncBoosts" onclick="subSubTab(111)">Increment Boosts</button>
+            <button class="tab atab" id="subSubTabPincBoosts" onclick="subSubTab(112)">Prestige Boosts</button>
           </div>
           <div id="subTab111">
             <table>
               <tr>
-                <td><button class="button b" id="binc1" onclick="boostInc(1)"><span class="smallText text top">Boost Increments</span><br><span class="bigText redText">Inc Boost 1</span><br><span class="bigText greenText" id="binc1bought">Buy: </span><span class="bigText goldText" id="binc1cost">Cost: <span id="binc1costx">0</span></span><br><span class="bigText greenText" id="binc1effect">0</span></button></td>
-                <td><button class="button b" id="binc2" onclick="boostInc(2)"><span class="smallText text top">Boost Automation</span><br><span class="bigText redText">Inc Boost 2</span><br><span class="bigText greenText" id="binc2bought">Buy: </span><span class="bigText goldText" id="binc2cost">Cost: <span id="binc2costx">0</span></span><br><span class="bigText greenText" id="binc2effect">0</span></button></td>
-                <td><button class="button b" id="binc3" onclick="boostInc(3)"><span class="smallText text top">Boost Scaling</span><br><span class="bigText redText">Inc Boost 3</span><br><span class="bigText greenText" id="binc3bought">Buy: </span><span class="bigText goldText" id="binc3cost">Cost: <span id="binc3costx">0</span></span><br><span class="bigText greenText" id="binc3effect">0</span></button></td>
+                <td><button class="button b" id="binc1" onclick="boostInc(1)"><span class="smallText text top">Boost Increments</span><br><span class="bigText redText">Inc Boost 1</span><br><span class="bigText goldText" id="binc1cost">Cost: 1 AP</span><br><span class="bigText purpleText" id="binc1effect">0</span></button></td>
+                <td><button class="button b" id="binc2" onclick="boostInc(2)"><span class="smallText text top">Boost Automation</span><br><span class="bigText redText">Inc Boost 2</span><br><span class="bigText goldText" id="binc2cost">Cost: 1 AP</span><br><span class="bigText purpleText" id="binc2effect">0</span></button></td>
+                <td><button class="button b" id="binc3" onclick="boostInc(3)"><span class="smallText text top">Boost Scaling</span><br><span class="bigText redText">Inc Boost 3</span><br><span class="bigText goldText" id="binc3cost">Cost: 1 AP</span><br><span class="bigText purpleText" id="binc3effect">0</span></button></td>
               </tr>
               <tr>
-                <td colspan="3"><button class="button b" id="bincinc"><br>Locked<br><br></button></td>
+                <td colspan="3"><button class="button b" id="bincinc" onclick="boostInc('inc')"><span class="smallText text top">Boost PP Boost</span><br><span class="bigText redText">Increment Boost</span><br><span class="bigText goldText" id="bincinccost">Cost: 10 AP</span><br><span class="bigText purpleText" id="bincinceffect">0</span></button></td>
                 <!--<td colspan="3"><button class="button b" id="bincinc" onclick="boostInc('inc')"><span class="smallText text top">Boost 0th Layer</span><br><span class="bigText redText">Increment Boost</span><br><span class="bigText greenText" id="bincincbought">Buy: </span><span class="bigText goldText">Cost: <span id="bincinccost">0</span></span><br><span class="bigText greenText" id="bincinceffect">0</span></button></td>-->
               </tr>
             </table>
@@ -217,18 +218,20 @@
           <div id="subTab112">
             <table>
               <tr>
-                <td><button class="button b"><br>Locked<br><br></button></td>
-                <td><button class="button b"><br>Locked<br><br></button></td>
-                <td><button class="button b"><br>Locked<br><br></button></td>
-                <!--<td><button class="button b" id="bpinc1" onclick="boostPinc(1)"><span class="tinyText top">WIP</span><br><span class="smallText redText">Prestige Boost 1</span><br><span class="smallText greenText" id="bpinc1bought">Buy: </span><span class="smallText goldText">Cost: <span id="bpinc1cost">0</span></span><br><span class="smallText greenText" id="bpinc1effect">0</span></button></td>
-                <td><button class="button b" id="bpinc2" onclick="boostPinc(2)"><span class="tinyText top">WIP</span><br><span class="smallText redText">Prestige Boost 2</span><br><span class="smallText greenText" id="bpinc2bought">Buy: </span><span class="smallText goldText">Cost: <span id="bpinc2cost">0</span></span><br><span class="smallText greenText" id="bpnc2effect">0</span></button></td>
-                <td><button class="button b" id="bpinc3" onclick="boostPinc(3)"><span class="tinyText top">WIP</span><br><span class="smallText redText">Prestige Boost 3</span><br><span class="smallText greenText" id="bpinc3bought">Buy: </span><span class="smallText goldText">Cost: <span id="bpinc3cost">0</span></span><br><span class="smallText greenText" id="bpinc3effect">0</span></button></td>-->
+                <td><button class="button b" id="bpinc1" onclick="boostPinc(1)"><span class="smallText text top">Remove upgrade's<br>negative effects</span><br><span class="bigText redText">Prestige Boost 1</span><br>Buy: <span class="bigText goldText" id="bpinc1cost">Cost: 5 AP</span><br><br><span class="bigText blueText" id="bpinc1effect">0</span></button></td>
+                <td><button class="button b"><br><br><span class="bigText text">Locked</span><br><br><br><br></button></td>
+                <td><button class="button b"><br><br><span class="bigText text">Locked</span><br><br><br><br></button></td>
+                <!--<td><button class="button b" id="bpinc2" onclick="boostPinc(2)"><span class="smallText text top">WIP</span><br><br><span class="bigText redText">Prestige Boost 2</span><br><span class="bigText greenText" id="bpinc2bought">Buy: </span><span class="bigText goldText">Cost: 5 AP</span><br><span class="bigText blueText" id="bpinc2effect">0</span></button></td>-->
+                <td><button class="button b" id="bpinc3" onclick="boostPinc(3)"><span class="smallText text top">Boost Challenge<br>rewards</span><br><span class="bigText redText">Prestige Boost 3</span><br>Buy: <span class="bigText goldText" id="bpinc3cost">Cost: 5 AP</span><br><span class="bigText blueText" id="bpinc3effect">0</span><br><span class="bigText blueText" id="bpinc3effect2">0</span><br></button></td>
               </tr>
             </table>
           </div>
         </div>
         <div id="subTab12">
-          
+          <br><div><button class="mastery" style="cursor: default; background-color: rgb(25, 25, 25)"><span class="greenText">Master Layer:<br>Increment</span></button></div>
+          <div><button class="mastery" id="minc1" onclick="mastery('inc1')"><span class="smallText text">Keep Increments<br>unlocked</span><br><span class="mediumText redText">Master Increments</span><br><span class="goldText" id="minc1cost">Cost: 5 AP</span></button></div>
+          <div><button class="mastery" id="minc2" onclick="mastery('inc2')"><span class="smallText text">Keep Automation<br>unlocked</span><br><span class="mediumText redText">Master Automation</span><br><span class="goldText" id="minc2cost">Cost: 10 AP</span></button></div>
+          <div><button class="mastery" id="minc3" onclick="mastery('inc3')"><span class="smallText text">Keep Scaling levels<br>on Ascension</span><br><span class="mediumText redText">Master Scaling</span><br><span class="goldText" id="minc3cost">Cost: 25 AP</span></button></div>
         </div>
         <div id="subTab13">
           
@@ -239,7 +242,7 @@
       </div><!--Ascension Tab-->
     </div>
     <div id="versions">
-      <span id="version" class="smallText text" style="color: rgb(100, 100, 100)">Version 0.1.0</span>
+      <span id="version" class="smallText text" style="color: rgb(100, 100, 100)">Version 0.1.1</span>
     </div><!--Game Version-->
     <div id="null"></div><!--Lazy bug remover-->
   </body>
