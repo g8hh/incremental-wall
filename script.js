@@ -131,7 +131,7 @@ const boostsPinc = (a, rate) => {
 //Functions relating to changes to the save data
 function confirmReset() {
   if (game.confirm.reset) {
-    let confirmed = confirm("Are you sure you want to reset? You will lose all of your progress!");
+    let confirmed = confirm("您确定要重置吗？ 你将失去所有的进度！");
     if (confirmed) {reset()}
   }
   else {reset()}
@@ -1226,12 +1226,12 @@ function refund() {
 }
 function confirmPrestige() {
   if (game.inc.prestige >= pp.req && !freeze) {
-    if (game.confirm.prestige) {let confirmYes = confirm("Are you sure you want to Prestige?"); if (confirmYes) {prestige()}}
+    if (game.confirm.prestige) {let confirmYes = confirm("你确定要声望吗？"); if (confirmYes) {prestige()}}
     else {prestige()}
   }
   else if (!freeze) {
     if (game.confirm.prestige) {
-      let confirmNo = confirm("You need " + e(pp.req, 2) + " Increment to gain Prestige Points. Are you sure you want to Prestige?");
+      let confirmNo = confirm("你需要 " + e(pp.req, 2) + " 递增来获得声望点数。 你确定要声望吗？");
       if (confirmNo) {prestige()}
     }
     else {prestige()}
@@ -1277,7 +1277,7 @@ function upgrade(n) {
       updatestatpinc();
     }
   }
-  else {alert("You cannot buy upgrades after buying Increments")}
+  else {alert("购买递增后无法购买升级")}
 }
 function pincrement(p) {
   if (game.pp.x >= pi.cost[p] && !freeze) {
@@ -1297,7 +1297,7 @@ function pincrement(p) {
 function confirmPChallenge(c) {
   if (game.c.p.count[c] < cmax[c] && !freeze) {
     if (game.confirm.challenge) {
-      let confirmed = confirm("Are you sure you want to start a Challenge? You will start from the beginning of the prestige");
+      let confirmed = confirm("您确定要开始挑战吗？ 你将从声望开头开始");
       if (confirmed) {challengeP(c)}
     }
     else {challengeP(c)}
@@ -1322,7 +1322,7 @@ function ccomplete() {
 }
 function confirmCexit() {
   if (game.confirm.challenge && freeze) {
-    let confirmed = confirm("Are you sure you want to exit the Challenge? You will not get rewarded for completing it");
+    let confirmed = confirm("您确定要退出挑战吗？ 你不会因为完成它而获得奖励");
     if (confirmed) {cexit()}
   }
   else {cexit()}
@@ -1346,12 +1346,12 @@ function cexit() {
 }*/
 function confirmAscension() {
   if (game.pp.ascension >= ap.req && !freeze) {
-    if (game.confirm.ascension) {let confirmYes = confirm("Are you sure you want to Ascend?"); if (confirmYes) {ascension()}}
+    if (game.confirm.ascension) {let confirmYes = confirm("你确定要转生吗？"); if (confirmYes) {ascension()}}
     else {ascension()}
   }
   else if (!freeze) {
     if (game.confirm.ascension) {
-      let confirmNo = confirm("You need " + e(ap.req, 2) + " Prestige Points to gain Ascension Points. Are you sure you want to Ascend?");
+      let confirmNo = confirm("你需要 " + e(ap.req, 2) + " 声望点数来获得转生点数。 你确定要转生吗？");
       if (confirmNo) {ascension()}
     }
     else {ascension()}
@@ -1527,7 +1527,7 @@ function copyStringToClipboard(str) {
   document.body.appendChild(el);
   copyToClipboard(el);
   document.body.removeChild(el);
-  alert("Copied to clipboard");
+  alert("存档已复制到剪切板");
 }
 function copyToClipboard(el) {
   el = (typeof el === "string") ? document.querySelector(el) : el;
