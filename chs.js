@@ -84,7 +84,6 @@ var cnItems = {
     "Upgrades are disabled": "升级被禁用",
     "You are gaining": "你获得了",
     "Refund Upgrades on next Prestige": "退款升级在下一个声望",
-    "Auto Increment 1 buys at 100": "自动递增 1 以 100 购买",
     "Automation is disabled": "自动化已禁用",
     "Boost Automation": "提升自动化",
     "Boost Challenge": "提升挑战",
@@ -132,8 +131,10 @@ var cnItems = {
     "Reward: Lower the prestige requirement": "奖励：降低声望要求",
     "Reward: Upgrades gain another level.": "奖励：升级获得另一个等级。",
     "rewards are 2x better": "奖励提高 2 倍",
-    "": "",
-    "": "",
+    "Gain Increment": "增益增量",
+    "Auto Increment on Prestige": "声望自动增加",
+    "Auto Increment 1 buys at 10": "自动递增 1 购买按 10",
+    "Auto Increment 1 buys at 100": "自动递增 1 购买按 100",
     "": "",
     "": "",
     "": "",
@@ -330,6 +331,8 @@ var cnExcludePostfix = [
 //原样输出的字段：(.+)
 //换行加空格：\n(.+)
 var cnRegReplace = new Map([
+    [/^(.+) Hours (.+) (.+) Seconds$/, '$1小时 $2秒'],
+    [/^(.+) Days (.+) Hours (.+) Minutes (.+) Seconds$/, '$1天 $2小时 $3分钟 $4秒'],
     [/^(.+) Years (.+) Days (.+) Hours (.+) Minutes (.+) Seconds$/, '$1年 $2天 $3小时 $4分钟 $5秒'],
     [/^You have (.+) points$/, '你有 $1 点数'],
     [/^Next at (.+) points$/, '下一个在 $1 点数'],
