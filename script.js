@@ -348,7 +348,7 @@ function exporty() {
   if (doc("loading").style.display = "none") {copyStringToClipboard(btoa(JSON.stringify(game)))}
   else {copyStringToClipboard(btoa(JSON.stringify(broken)))}
 }
-function importy() {let data = JSON.parse(atob(prompt("Paste your save code here."))); if (data !== "") {loadGame(data)}}
+function importy() {let data = JSON.parse(atob(prompt("在此处粘贴您的存档代码。"))); if (data !== "") {loadGame(data)}}
 function debug(save) {return JSON.parse(atob(save))}
 
 //Useful/convenient functions

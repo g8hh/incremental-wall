@@ -135,7 +135,7 @@ var cnItems = {
     "Auto Increment on Prestige": "声望自动增加",
     "Auto Increment 1 buys at 10": "自动递增 1 购买按 10",
     "Auto Increment 1 buys at 100": "自动递增 1 购买按 100",
-    "": "",
+    "Infinite Time": "无限时间",
     "": "",
     "": "",
     "": "",
@@ -331,8 +331,10 @@ var cnExcludePostfix = [
 //原样输出的字段：(.+)
 //换行加空格：\n(.+)
 var cnRegReplace = new Map([
-    [/^(.+) Hours (.+) (.+) Seconds$/, '$1小时 $2秒'],
-    [/^(.+) Days (.+) Hours (.+) Minutes (.+) Seconds$/, '$1天 $2小时 $3分钟 $4秒'],
+    [/^Auto Increment (.+) on Prestige$/, '声望自动递增 $1'],
+    [/^([\d\.]+) Minutes (.+) Seconds$/, '$1分钟 $2秒'],
+    [/^([\d\.]+) Hours (.+) Seconds$/, '$1小时 $2秒'],
+    [/^([\d\.]+) Days (.+) Hours (.+) Minutes (.+) Seconds$/, '$1天 $2小时 $3分钟 $4秒'],
     [/^(.+) Years (.+) Days (.+) Hours (.+) Minutes (.+) Seconds$/, '$1年 $2天 $3小时 $4分钟 $5秒'],
     [/^You have (.+) points$/, '你有 $1 点数'],
     [/^Next at (.+) points$/, '下一个在 $1 点数'],
@@ -349,6 +351,8 @@ var cnRegReplace = new Map([
 	[/^Pincrement ([\d\.]+)$/, '增量 $1'],
 	[/^Auto Increment ([\d\.]+)$/, '自动递增 $1'],
 	[/^([\d\.]+)\/sec$/, '$1\/秒'],
+	[/^([\d\.]+) Seconds$/, '$1 秒'],
+	[/^([\d\.]+) PP$/, '$1 声望点'],
 	[/^Decrease Increment (.+)\'s cost scaling$/, '减少递增 $1 的成本比例'],
     [/^requires ([\d\.]+) more research points$/, '需要$1个研究点'],
     [/^(\d+) Royal points$/, '$1 皇家点数'],
