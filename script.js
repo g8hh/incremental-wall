@@ -207,10 +207,10 @@ function resetAscension() {
   unlockpinc();
   unlockainc();
 }
-function save() {localStorage.setItem("game", JSON.stringify(game))}
+function save() {localStorage.setItem("wallgame", JSON.stringify(game))}
 function load() {
-  let data = JSON.parse(localStorage.getItem("game"));
-  if (localStorage.getItem("gameFile") != null) {data = localStorage.getItem("gameFile"); localStorage.removeItem("gameFile")}
+  let data = JSON.parse(localStorage.getItem("wallgame"));
+  if (localStorage.getItem("wallgameFile") != null) {data = localStorage.getItem("wallgameFile"); localStorage.removeItem("wallgameFile")}
   if (data != null) {loadGame(data)}
   else {game = setGame()}
 }
